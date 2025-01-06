@@ -1,15 +1,17 @@
 `use strict`;
 
-function getShippingMessage(country, price, deliveryFee) {
+function formatMessage(message, maxLength) {
+  const mess = message.slice(0, maxLength);
 
-    return `Shipping to ${country} will cost ${price + deliveryFee} credits`;
+  if (mess === message) {
+    return mess;
+  } else {
+    return mess + '...';
+  }
 }
 
-getShippingMessage("Australia", 120, 50);
-console.log(getShippingMessage("Australia", 120, 50));
+formatMessage('Curabitur ligula sapien', 16);
+console.log(formatMessage('Curabitur ligula sapien', 16));
 
-getShippingMessage("Germany", 80, 20);
-console.log(getShippingMessage("Germany", 80, 20));
-
-getShippingMessage("Sweden", 100, 20);
-console.log(getShippingMessage("Sweden", 100, 20));
+formatMessage('Curabitur ligula sapien', 23);
+console.log(formatMessage('Curabitur ligula sapien', 23));

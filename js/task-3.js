@@ -1,20 +1,18 @@
 `use strict`;
 
-function getElementWidth(content, padding, border) {
-  const num1 = parseFloat(content);
-  const num2 = parseFloat(padding);
-  const num3 = parseFloat(border);
+function checkForSpam(message) {
+  const textLower = message.toLowerCase();
 
-  return num1 + num2 * 2 + num3 * 2;
+  if (textLower.includes(`sale`) || textLower.includes(`spam`))
+    return Boolean(true);
+  else return Boolean(false);
 }
 
-getElementWidth(`50px`, `8px`, `4px`);
-console.log(getElementWidth(`50px`, `8px`, `4px`));
+console.log(checkForSpam('Latest technology news'));
 
-getElementWidth(`60px`, `12px`, `8.5px`);
-console.log(getElementWidth(`60px`, `12px`, `8.5px`));
+console.log(checkForSpam('Get best sale offers now!'));
 
-getElementWidth(`200px`, `0`, `0`);
-console.log(getElementWidth(`200px`, `0`, `0`));
+console.log(checkForSpam('Trust me, this is not a spam message'));
 
-// return content + padding * 2 + border * 2
+console.log(checkForSpam('Get rid of sPaM emails. Our book in on sale!'));
+console.log(checkForSpam('JavaScript weekly newsletter'));
